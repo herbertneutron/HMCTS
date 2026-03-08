@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { TextField, Button, Paper, Stack } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
-import { createTask } from "../services/taskService";
+import { createTask } from "../../services/taskService";
 
 function TaskForm({ refreshTasks }) {
   const [title, setTitle] = useState("");
@@ -23,14 +23,14 @@ function TaskForm({ refreshTasks }) {
 
   return (
     <Paper sx={{ p: 3, mb: 4 }}>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <Stack spacing={2}>
           <TextField
             label="Task Title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
-            fullWidth
+            style={{ width: 30}}
           />
 
           <TextField

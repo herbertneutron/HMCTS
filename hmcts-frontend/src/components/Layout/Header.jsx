@@ -1,19 +1,26 @@
-import { AppBar, Toolbar, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import Logo from "../../assets/images/MOJ.png";
 
 const Header = () => {
   return (
-    <AppBar
-      position="static"
-      sx={{ mb: 3 }}
+    <Box
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        mb: 3,       // spacing below the header
+        maxWidth: 600, // match TaskForm width
+      }}
     >
-      <Toolbar>
-
-        <Typography variant="h6">
-          HMCTS Task Manager
-        </Typography>
-
-      </Toolbar>
-    </AppBar>
+      <Box
+        component="img"
+        src={Logo}
+        alt="HMCTS Logo"
+        sx={{
+          height: 50,
+          width: "auto",
+        }}
+      />
+    </Box>
   );
 };
 

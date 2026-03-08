@@ -1,16 +1,196 @@
-# React + Vite
+# HMCTS Task Management Dashboard (Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
 
-Currently, two official plugins are available:
+This project is a **Task Management Dashboard** built with **React**, **Vite**, and **Material UI**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The application connects to the **NestJS backend API** to allow users to:
 
-## React Compiler
+* Create tasks
+* View tasks in a table
+* Mark tasks as completed
+* Track task status
+* View due dates
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The UI focuses on simplicity and usability while demonstrating clean React component architecture.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Tech Stack
+
+* **Framework:** React
+* **Build Tool:** Vite
+* **Language:** JavaScript
+* **UI Library:** Material UI
+* **HTTP Client:** Axios
+
+---
+
+## Project Structure
+
+```
+src
+│
+├── services
+│   └── taskService.js
+│
+├── components
+│   └── Tasks
+│        └── TaskTable.jsx
+│
+├── pages
+│   └── Dashboard.jsx
+│
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```
+git clone <repository-url>
+cd hmcts-frontend
+```
+
+Install dependencies:
+
+```
+npm install
+```
+
+---
+
+## Running the Application
+
+Start the development server:
+
+```
+npm run dev
+```
+
+The application will be available at:
+
+```
+http://localhost:5173
+```
+
+---
+
+## API Configuration
+
+The frontend communicates with the backend API.
+
+Default API URL:
+
+```
+http://localhost:3000/tasks
+```
+
+This can be changed in:
+
+```
+src/services/taskService.js
+```
+
+---
+
+## Features
+
+### Task Table
+
+Displays tasks with:
+
+* Title
+* Description
+* Status
+* Due Date
+* Action buttons
+
+---
+
+### Status Indicators
+
+Tasks are displayed using colored badges:
+
+| Status    | Color  |
+| --------- | ------ |
+| Pending   | Yellow |
+| Completed | Green  |
+
+---
+
+### Complete Task
+
+Tasks with **PENDING status** display a **Complete button**.
+
+Clicking the button:
+
+1. Sends a `PATCH` request to the backend
+2. Updates the task status to `COMPLETED`
+3. Refreshes the task list
+4. Removes the button
+
+---
+
+## API Integration
+
+Example API function:
+
+```
+export const updateTask = (id, data) => {
+  return axios.patch(`${API_URL}/${id}`, data);
+};
+```
+
+---
+
+## Development Scripts
+
+Available scripts:
+
+```
+npm run dev
+npm run build
+npm run preview
+```
+
+---
+
+## UI Components
+
+The project uses **Material UI components** including:
+
+* Table
+* TableRow
+* TableCell
+* Chip
+* Button
+* Stack
+* Paper
+
+---
+
+## Future Improvements
+
+Potential improvements include:
+
+* Search and filtering
+* User authentication
+* Responsive mobile layout
+
+---
+
+## Author
+
+Developed as part of the **HMCTS technical assessment**.
+
+The project demonstrates:
+
+* React component design
+* API integration
+* State management
+* UI development with Material UI

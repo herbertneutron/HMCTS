@@ -27,7 +27,7 @@ const Dashboard = () => {
 
     <Box sx={{ display: "flex" }}>
 
-      <Sidebar />
+      {/* <Sidebar /> */}
 
       <Container sx={{ mt: 3 }}>
 

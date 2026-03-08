@@ -1,13 +1,12 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:3000/tasks";
+const API = "http://localhost:3000/tasks";
 
-export const getTasks = () => axios.get(API_URL);
+export const getTasks = () => axios.get(API);
 
-export const createTask = (task) => axios.post(API_URL, task);
+export const createTask = (task) => axios.post(API, task);
 
-export const updateTaskStatus = (id, status) =>
-  axios.patch(`${API_URL}/${id}`, { status });
+export const deleteTask = (id) => axios.delete(`${API}/${id}`);
 
-export const deleteTask = (id) =>
-  axios.delete(`${API_URL}/${id}`);
+export const updateTask = (id, task) =>
+  axios.patch(`${API}/${id}`, task);

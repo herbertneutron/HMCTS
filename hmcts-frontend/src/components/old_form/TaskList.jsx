@@ -11,7 +11,7 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
-import { deleteTask, updateTask } from "../services/taskService";
+import { deleteTask, updateTask } from "../../services/taskService";
 
 function TaskList({ tasks, refreshTasks }) {
 
